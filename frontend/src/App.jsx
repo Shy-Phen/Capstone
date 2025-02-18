@@ -1,14 +1,13 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./Components/Navbar";
 import SignUpPage from "./Pages/SignUpPage";
-import Profile from "./Pages/Profile";
 import LogInPage from "./Pages/LogInPage";
 import HomePage from "./Pages/HomePage";
 import { useAuthStore } from "./store/authStore";
 import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import { Loader } from "lucide-react";
-import SideBar from "./Components/SideBar";
+
 import AssessmentFramework from "./Pages/AssessmentFramework";
 import Evaluate from "./Pages/Evaluate";
 
@@ -29,7 +28,6 @@ const App = () => {
   return (
     <div>
       <Navbar />
-      <SideBar />
 
       <Routes>
         <Route
@@ -53,10 +51,6 @@ const App = () => {
         <Route
           path="/evaluate"
           element={authUser ? <Evaluate /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/profile"
-          element={authUser ? <Profile /> : <Navigate to="/login" />}
         />
       </Routes>
       <Toaster />
