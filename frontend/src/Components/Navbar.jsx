@@ -14,7 +14,7 @@ const Navbar = () => {
     return null;
   }
   return (
-    <header className="bg-base-300 fix w-full top-0 z-40 border-b border-base-300 backdrop-blur-lg">
+    <header className="fixed bg-base-300 h-16 w-full top-0 z-40 border-b border-black backdrop-blur-lg">
       <div className="container mx-auto px-4 h-16">
         <div className="flex items-center justify-between h-full">
           {/* Left Section (Home Link) */}

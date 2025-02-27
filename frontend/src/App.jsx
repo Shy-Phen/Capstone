@@ -10,6 +10,7 @@ import { Loader } from "lucide-react";
 
 import AssessmentFramework from "./Pages/AssessmentFramework";
 import Evaluate from "./Pages/Evaluate";
+import SideBar from "./Components/SideBar";
 
 const App = () => {
   const { isCheckingAuth, authUser, checkAuth } = useAuthStore();
@@ -28,6 +29,7 @@ const App = () => {
   return (
     <div>
       <Navbar />
+      <SideBar />
 
       <Routes>
         <Route
@@ -43,7 +45,7 @@ const App = () => {
           element={!authUser ? <LogInPage /> : <Navigate to="/" />}
         />
         <Route
-          path="/asseement-framework"
+          path="/assessment-framework"
           element={
             authUser ? <AssessmentFramework /> : <Navigate to="/login" />
           }

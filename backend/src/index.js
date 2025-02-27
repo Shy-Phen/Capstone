@@ -2,7 +2,8 @@ import express from "express";
 import dotenv from "dotenv";
 import { connectDB } from "./lib/MongoDB.js";
 import authRoutes from "./routes/authRoute.js";
-
+import assessmentFramework from "./routes/assessmentFrameworkRoutes.js";
+import evaluate from "./routes/evaluateRoutes.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 dotenv.config();
@@ -20,7 +21,10 @@ app.use(
     credentials: true,
   })
 );
+
 app.use("/api/auth", authRoutes);
+app.use("/api/assessment-framework", assessmentFramework);
+app.use("/api/evaluatee", evaluate);
 
 app.listen(PORT, () => {
   console.log("connected to PORT: " + PORT);

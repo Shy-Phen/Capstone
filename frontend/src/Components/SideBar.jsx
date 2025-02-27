@@ -2,10 +2,10 @@ import { BookCheckIcon, HouseIcon, Notebook } from "lucide-react";
 import { Link } from "react-router-dom";
 const SideBar = () => {
   return (
-    <aside className="h-screen w-10 lg:w-64 border-r border-base-300 bg-base-300 transition-all duration-200 ">
-      <div className=" w-full p-1">
+    <aside className="fixed top-16 h-screen w-10 lg:w-64 border-t border-r border-r-black bg-base-300 transition-all duration-200">
+      <div className="w-full p-1">
         <div>
-          <ul className="space-y-8">
+          <ul className="space-y-8 mt-6">
             <li>
               <Link
                 to="/"
@@ -19,7 +19,7 @@ const SideBar = () => {
             </li>
             <li>
               <Link
-                to="/asseement-framework"
+                to="/assessment-framework"
                 className="flex items-center gap-2 hover:opacity-80 transition-all"
               >
                 <div className="size-9 rounded-lg bg-primary/10 flex items-center justify-center">
