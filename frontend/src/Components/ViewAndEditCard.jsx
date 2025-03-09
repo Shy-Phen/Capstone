@@ -4,18 +4,22 @@ const ViewAndEditCard = () => {
   const { currentAssessment, formData, setFormData, updateAssessment } =
     assessmentFrameworkStore();
 
+  const closeModal = () => {
+    document.getElementById("my_modal_3").close();
+  };
+
   return (
     <dialog id="my_modal_3" className="modal">
       <div className="modal-box">
-        <form method="dialog">
-          {/* if there is a button in form, it will close the modal */}
-          <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-            ✕
-          </button>
-        </form>
-        <h3 className="font-bold text-lg">
-          {console.log(currentAssessment?.title)}
-        </h3>
+        {/* if there is a button in form, it will close the modal */}
+        <button
+          className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+          onClick={closeModal}
+        >
+          ✕
+        </button>
+
+        <h3 className="font-bold text-lg"></h3>
         <p className="py-4">{formData.title}</p>
         <form
           onSubmit={(e) => {
@@ -92,13 +96,17 @@ const ViewAndEditCard = () => {
             </label>
           </div>
           <div className="flex grid-cols-2 justify-center items-center mt-4 gap-4">
-            <button className="btn btn-sm hover:bg-slate-800 bg-cyan-500 rounded ">
+            <button
+              className="btn btn-sm hover:bg-slate-800 bg-cyan-500 rounded"
+              type="submit"
+            >
               Update
             </button>
-            <form method="dialog">
-              {/* if there is a button, it will close the modal */}
-              <button className="btn btn-sm">Cancel</button>
-            </form>
+
+            {/* if there is a button, it will close the modal */}
+            <button className="btn btn-sm" onClick={closeModal} type="button">
+              Cancel
+            </button>
           </div>
         </form>
       </div>

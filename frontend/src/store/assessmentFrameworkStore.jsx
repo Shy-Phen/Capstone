@@ -10,7 +10,7 @@ export const assessmentFrameworkStore = create((set, get) => ({
 
   formData: {
     title: "",
-    scoringScale: [{ score: ", description: " }],
+    scoringScale: [{ score: "", description: "" }],
     criteria: [{ criteria: "" }],
   },
 
@@ -21,7 +21,8 @@ export const assessmentFrameworkStore = create((set, get) => ({
       set({ isCreating: true });
       await axiosInstance.post("/assessment-framework", data);
       get().getAllAssessmentFramework();
-      toast.success("Assessment framework Created");
+      document.getElementById("my_modal_1").close();
+      toast.success("Rubric Created");
     } catch (error) {
       toast.error(error);
     } finally {
@@ -51,7 +52,7 @@ export const assessmentFrameworkStore = create((set, get) => ({
           (assessment) => assessment._id !== id
         ),
       })),
-        toast.success("Assessment framework deleted succesfully");
+        toast.success("Rubric deleted succesfully");
       console.log("hah");
     } catch (error) {
       toast.error(error);
@@ -85,7 +86,8 @@ export const assessmentFrameworkStore = create((set, get) => ({
         formData
       );
       set({ currentProduct: res.data.updatedFramework });
-      toast.success("Assessment updated successfully");
+      document.getElementById("my_modal_3").close();
+      toast.success("Rubric updated successfully");
     } catch (error) {
       toast.error("Something went wrong");
       console.log("Error in updateProduct function", error);

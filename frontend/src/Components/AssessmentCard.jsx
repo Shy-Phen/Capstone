@@ -1,5 +1,6 @@
 import { Pencil, Trash2Icon } from "lucide-react";
 import { assessmentFrameworkStore } from "../store/assessmentFrameworkStore";
+import ViewAndEditCard from "./ViewAndEditCard";
 
 const AssessmentCard = ({ assessment }) => {
   const { deleteAssessment, getOneAssessment } = assessmentFrameworkStore();
@@ -8,6 +9,7 @@ const AssessmentCard = ({ assessment }) => {
     console.log("🖱️ Clicked Assessment ID:", id); // Debugging clicked ID
     document.getElementById("my_modal_3").showModal();
     getOneAssessment(id);
+    <ViewAndEditCard />;
   };
   return (
     <div className="w-48 md:w-56 bg-base-100 rounded h-20  shadow-lg relative">

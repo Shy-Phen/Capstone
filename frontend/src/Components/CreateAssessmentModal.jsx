@@ -78,15 +78,21 @@ const CreateAssessmentModal = () => {
     setCriteriaFields([{ criteria: "" }]);
   };
 
+  const closeModal = () => {
+    document.getElementById("my_modal_1").close();
+  };
+
   return (
     <dialog id="my_modal_1" className="modal">
       <div className="modal-box">
-        <form method="dialog">
-          {/* if there is a button in form, it will close the modal */}
-          <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-            ✕
-          </button>
-        </form>
+        {/* if there is a button in form, it will close the modal */}
+        <button
+          className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+          onClick={closeModal}
+        >
+          ✕
+        </button>
+
         <form
           onSubmit={handleSubmit}
           className="space-y-4 mt-5 grid place-items-center"
@@ -113,12 +119,13 @@ const CreateAssessmentModal = () => {
               <div className="w-full flex grid-cols-2 justify-center gap-28 md:gap-40 h-5">
                 <h4 className="text-sm">Scoring Scale</h4>
                 <div className="flex justify-items-center items-center space-x-2">
-                  <h1
-                    className="rounded w-16 flex justify-center items-center  cursor-pointer bg-base-200"
+                  <button
+                    type="button"
+                    className="btn btn-sm btn-primary"
                     onClick={handleFields}
                   >
                     <PlusSquare className="" />
-                  </h1>
+                  </button>
                 </div>
               </div>
 
@@ -217,6 +224,7 @@ const CreateAssessmentModal = () => {
                       !isValid ||
                       !isValidCriteria
                     }
+                    type="submit"
                   >
                     {isCreating ? (
                       <>
@@ -228,11 +236,13 @@ const CreateAssessmentModal = () => {
                   </button>
                 </div>
                 <div>
-                  <form method="Dialog">
-                    <button className="w-20 h-10 rounded btn-neutral">
-                      Cancel
-                    </button>
-                  </form>
+                  <button
+                    className="w-20 h-10 rounded btn-neutral"
+                    onClick={closeModal}
+                    type="button"
+                  >
+                    Cancel
+                  </button>
                 </div>
               </div>
             </div>

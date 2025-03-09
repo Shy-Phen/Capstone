@@ -18,7 +18,9 @@ const AssessmentFramework = () => {
     <div className="ml-10 lg:ml-64 mt-14 h-screen overflow-auto bg-base-200">
       {assessments.length === 0 && !loading && (
         <div className="flex justify-center items-center size-full">
-          <h1 className="text-white text-4xl">Create Products now</h1>
+          <h1 className="text-white text-4xl">
+            Create Assessment framework now
+          </h1>
           <button
             className="top-0"
             onClick={() => document.getElementById("my_modal_1").showModal()}
@@ -41,7 +43,7 @@ const AssessmentFramework = () => {
         )}
       </div>
       <CreateAssessmentModal />
-      <ViewAndEditCard />;
+      <ViewAndEditCard />
       <div className=" flex justify-center items-center rounded-full size-10 bg-black hover:bg-white absolute right-5 bottom-5">
         <button
           className="flex justify-center items-center bg-zinc-50 rounded-full"

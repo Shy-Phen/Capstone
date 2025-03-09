@@ -24,7 +24,7 @@ app.use(
 
 app.use("/api/auth", authRoutes);
 app.use("/api/assessment-framework", assessmentFramework);
-app.use("/api/evaluatee", evaluate);
+app.use("/api/evaluate", evaluate);
 
 app.listen(PORT, () => {
   console.log("connected to PORT: " + PORT);
